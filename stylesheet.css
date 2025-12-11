@@ -40,11 +40,16 @@ body {
 }
 
 .fa-linkedin {
-    background-color: #0A66C2;
+    background: linear-gradient(45deg, #0077B5, #00A0DC);
 }
 
 .fa-github {
-    background-color: #222;
+    background: linear-gradient(to right, #6e5494, #94546e);
+}
+
+.fa-instagram {
+    background: #833ab4; 
+    background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
 }
 
 .resume {
@@ -95,7 +100,7 @@ h1, h2, h3 {
 .name-gradient {
     font-weight: bold;
     display: inline-block;
-    background: linear-gradient(90deg, #30287a, #6944ec);
+    background: linear-gradient(90deg, #3925f0, #cec5f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text; 
@@ -164,3 +169,59 @@ img {
     height: 200px;
 }
 
+/* Footer Styling */
+footer {
+    clear: both; 
+    width: 100%;
+    background-color: #111; 
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, #3925f0, #cec5f1) 1; 
+    padding: 40px 0;
+    margin-top: 60px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.footer-socials .fa {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    padding: 8px;
+    margin: 0 8px;
+    background: #222; 
+    box-shadow: none; 
+}
+
+.footer-socials .fa:hover {
+    transform: translateY(-3px);
+    background: inherit; 
+}
+
+.footer-socials .fa-linkedin:hover {
+    background: linear-gradient(45deg, #0077B5, #00A0DC);
+}
+
+.footer-socials .fa-github:hover {
+    background: linear-gradient(to right, #6e5494, #94546e);
+}
+
+.footer-email {
+    color: #cec5f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: #3925f0;
+    text-decoration: underline;
+}
