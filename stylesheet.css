@@ -1,12 +1,10 @@
 body {
-    background: linear-gradient(135deg, #000000, #1a1a1a, #232323);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); 
+    background: radial-gradient(circle at top right, #12141d, #090a0f);
     color: #e3e3e3;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    
-    
+    min-height: 100vh;
 }
 
 .social-media-icons {
@@ -131,23 +129,26 @@ h1, h2, h3 {
 
 
 .card {    
-    background: linear-gradient(to bottom, #383838 0%, #181818 100%);    
+    background: rgba(255, 255, 255, 0.03); /* Translucent background */
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle edge */
     color: #fff;                         
     display: flex;
     flex-direction: column;              
     align-items: flex-start;                 
-    padding: 20px;                       
+    padding: 25px;                       
     width: 300px;                        
-    border-radius: 12px;                 
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;    
-           
+    border-radius: 16px;                 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);    
 }
 
 
 .card:hover {
-    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);         
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 15px 45px rgba(57, 37, 240, 0.15); /* Glow effect matching your name gradient */
+    transform: translateY(-8px);         
+    border-color: rgba(206, 197, 241, 0.3); /* Border highlights on hover */
 }
 
 
@@ -173,9 +174,8 @@ img {
 footer {
     clear: both; 
     width: 100%;
-    background-color: #111; 
-    border-top: 3px solid transparent;
-    border-image: linear-gradient(90deg, #3925f0, #cec5f1) 1; 
+    background-color: #050608; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px 0;
     margin-top: 60px;
     text-align: center;
