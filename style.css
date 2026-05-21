@@ -264,6 +264,28 @@ body{
     pointer-events: none;
 }
 
+.glass-piece.p5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-wrapper {
+    width: 100%;
+}
+
+.card-footer {
+    margin-top: auto;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.card-footer p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
 .footer-socials a:hover .tooltip-text {
     visibility: visible;
     opacity: 1;

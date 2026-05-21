@@ -92,19 +92,22 @@
       </div>
 
       <div class="glass-piece p5">
-        <div class="inner-content">
+        <div class="inner-content contact-wrapper">
           <h3>Contact Me</h3>
           
           <div class="footer-socials">
-              <!-- Email button with a built-in tooltip container -->
-              <a href="javascript:void(0)" id="copy-email-btn" class="fa fa-envelope" title="Click to copy email"><span class="tooltip-text">Copy Email</span>
-              </a>
-              <a href="https://www.linkedin.com/in/petermitchell2001" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a>
-              <a href="https://github.com/JustaSingular" class="fa fa-github" target="_blank" rel="noopener noreferrer"></a>
+            <!-- Email button with a built-in tooltip container -->
+            <a href="javascript:void(0)" id="copy-email-btn" class="fa fa-envelope" title="Click to copy email">
+              <span class="tooltip-text">Copy Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/petermitchell2001" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a>
+            <a href="https://github.com/JustaSingular" class="fa fa-github" target="_blank" rel="noopener noreferrer"></a>
           </div>
         </div>
+        <div class="card-footer">
+          <p>&copy; <span id="year"></span> Peter Mitchell. Built with HTML & CSS.</p>
+        </div>
       </div>
-  </div>
 
   <script>
   const container = document.querySelector('.container');
@@ -185,5 +188,8 @@
     }
 });
   </script>
+  <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
 </body>
 </html>
