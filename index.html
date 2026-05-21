@@ -107,9 +107,11 @@
   </div>
 
   <script>
-    const container = document.querySelector('.container');
-    const pieces = document.querySelectorAll('.glass-piece');
+  const container = document.querySelector('.container');
+  const pieces = document.querySelectorAll('.glass-piece');
 
+  // Only run the 3D tilting effect if the screen is wider than 768px (Desktop/Tablet)
+  if (window.innerWidth > 768) {
     container.addEventListener('mousemove', (e) => {
       pieces.forEach(piece => {
         const rect = piece.getBoundingClientRect();
@@ -134,21 +136,22 @@
       });
     });
 
-    // Reset rotation smoothly
-    container.addEventListener('mouseleave', () => {
-      pieces.forEach(piece => {
-        piece.style.transition = 'transform 500ms ease-out';
-        piece.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-      });
-    });
-
     // Restore linear tracking transition
     container.addEventListener('mouseenter', () => {
       pieces.forEach(piece => {
         piece.style.transition = 'transform 150ms linear';
       });
     });
-  </script>
+  }
+
+  // Always keep the mouseleave reset active just in case of screen resizing
+  container.addEventListener('mouseleave', () => {
+    pieces.forEach(piece => {
+      piece.style.transition = 'transform 500ms ease-out';
+      piece.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+    });
+  });
+</script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
     const emailBtn = document.getElementById('copy-email-btn');
