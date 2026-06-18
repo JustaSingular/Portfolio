@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
   
@@ -16,9 +17,10 @@
       <!-- <div class="title">THREE<br>JS.</div> -->
     </div>
 
-    <div class="glass-grid">
+      <div class="glass-grid">
       
       <div class="glass-piece p1">
+         <div class="edge-shine"></div>
         <div class="inner-content">
           <h2>Peter Mitchell's Portfolio</h2>
           <br><br>
@@ -29,10 +31,11 @@
       </div>
 
       <div class="glass-piece p2">
-  <div class="inner-content" style="width: 100%;">
-    <h2>Websites I've Built</h2>
+         <div class="edge-shine"></div>
+      <div class="inner-content" style="width: 100%;">
+      <h2>Websites I've Built</h2>
     
-    <div class="projects-row">
+      <div class="projects-row">
       
       <div class="project-column">
         <h4>Oil & Gas Tracker</h4>
@@ -58,11 +61,12 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
+      </div>
+      </div>
+      </div>
 
       <div class="glass-piece p3">
+         <div class="edge-shine"></div>
         <div class="inner-content">
           <h2>Skills</h2>
           <br>
@@ -78,10 +82,11 @@
       </div>
 
       <div class="glass-piece p4">
+         <div class="edge-shine"></div>
         <div class="inner-content">
           <h2>Work Experience</h2>
           <h3>B3N Industries</h3>
-          <p>Co-founder & Head Software Engineer | Jan 2026 - Current</p>
+          <p>Co-founder & Lead Web Developer | Jan 2026 - Current</p>
           <br>
           <h3>Central Bank of Trinidad and Tobago</h3>
           <p>Statistics Department (BOP Unit) Intern | Jun 2024 - August 2024</p>
@@ -92,6 +97,7 @@
       </div>
 
       <div class="glass-piece p5">
+         <div class="edge-shine"></div>
         <div class="inner-content contact-wrapper">
           <h3>Contact Me</h3>
           
@@ -108,8 +114,49 @@
           <p>&copy; <span id="year"></span> Peter Mitchell. Built with HTML & CSS.</p>
         </div>
       </div>
+    </div>
+  </div>
+  
+  <div class="below-the-fold-content">
+    <h2>More Projects and Activities</h2>
+    <p>3D Modelling</p>
+
+    <div class="model-section">
+      <div class="canvas-container">
+        <model-viewer 
+        src="models/fatima.glb" 
+        alt="A 3D model of a Fatima College" 
+        auto-rotate 
+        camera-controls 
+        ar>
+        </model-viewer>
+      </div>
+
+      <div class="canvas-container">
+        <model-viewer 
+        src="models/chair.glb" 
+        alt="A 3D model of a robot" 
+        auto-rotate 
+        camera-controls>
+        </model-viewer>
+      </div>
+
+      <div class="canvas-container">
+        <model-viewer 
+        src="models/newpan.glb" 
+        alt="A 3D model of a robot" 
+        auto-rotate 
+        camera-controls 
+        autoplay
+        animation-name="*">
+        </model-viewer>
+        </div>
+      </div>
+    </div>
 
   <script>
+  document.getElementById("year").innerHTML = new Date().getFullYear();
+
   const container = document.querySelector('.container');
   const pieces = document.querySelectorAll('.glass-piece');
 
@@ -154,9 +201,8 @@
       piece.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
     });
   });
-</script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+
+  document.addEventListener('DOMContentLoaded', () => {
     const emailBtn = document.getElementById('copy-email-btn');
     
     if (emailBtn) {
@@ -187,9 +233,7 @@
         });
     }
 });
-  </script>
-  <script>
-        document.getElementById("year").innerHTML = new Date().getFullYear();
-    </script>
+</script>
+  
 </body>
 </html>
