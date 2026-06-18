@@ -1,4 +1,3 @@
-
 *{
     margin:0;
     padding:0;
@@ -7,25 +6,22 @@
 
 body{
     background:#050505;
-    height:100vh;
+    min-height: 100vh;
     width: 100%;
-    display:flex;
+    display:block;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    overflow-y: auto;
     font-family:sans-serif;
 }
 
-.container{
-    position:relative;
-    width:100%;
-    height:700px;
-    overflow:hidden;
-    background:
-    radial-gradient(circle at top left,#171717,#080808 60%);
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
 }
 
-/* BACKGROUND CONTENT (Behind the glass grid) */
 .content{
     position:absolute;
     inset:0;
@@ -37,13 +33,11 @@ body{
 .title{
     font-size:6rem;
     line-height:0.95;
-    color:rgba(255, 255, 255, 0.15); /* Faded out so it acts as a cool background layer */
+    color:rgba(255, 255, 255, 0.15); 
     font-weight:700;
     letter-spacing:-4px;
     width:500px;
 }
-
-
 
 /* GLASS GRID CONTAINER */
 .glass-grid {
@@ -77,13 +71,85 @@ body{
     padding: 30px;
 }
 
+.glass-piece::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px; /* 2px more than card's 20px */
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle, 0deg),
+        #ff0080, #ff4500, #ffd700,
+        #00ff88, #00cfff, #7b5eff,
+        #ff00c8, #ff0080
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 250ms ease;
+    pointer-events: none;
+}
+
+.glass-piece::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background:
+        /* Magenta blush along top */
+        radial-gradient(ellipse 70% 25% at 50% 0%,   rgba(220, 60, 140, 0.22) 0%, transparent 75%),
+        /* Amber warmth from left */
+        radial-gradient(ellipse 25% 65% at 0%   50%, rgba(255, 140, 20, 0.20) 0%, transparent 75%),
+        /* Coral-orange from right */
+        radial-gradient(ellipse 25% 65% at 100% 50%, rgba(255, 80, 40, 0.18) 0%, transparent 75%),
+        /* Golden amber pooling at bottom */
+        radial-gradient(ellipse 70% 30% at 50% 100%, rgba(255, 180, 0, 0.20) 0%, transparent 75%),
+        /* Soft magenta centre warmth */
+        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(180, 40, 100, 0.07) 0%, transparent 80%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+}
+
+
 .glass-piece:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.1),
-        0 20px 45px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.055);
+    border-color: transparent; /* the ::before ring takes over */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+.glass-piece:hover::before { opacity: 1; animation: rotatePrism 4s linear infinite; }
+.glass-piece:hover::after  { opacity: 1; }
+.glass-piece:hover .edge-shine { opacity: 1; }
+
+@keyframes rotatePrism {
+    from { --angle: 0deg; }
+    to   { --angle: 360deg; }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.edge-shine {
+    position: absolute;
+    top: 0; left: 8%; right: 8%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(220, 80, 180, 0.7) 15%,
+        rgba(255, 200, 80, 0.95) 40%,
+        rgba(255, 255, 220, 1.0) 50%,
+        rgba(255, 120, 40, 0.95) 65%,
+        rgba(200, 40, 100, 0.6) 85%,
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
 }
 
 /* Asymmetric grid mapping */
@@ -198,15 +264,6 @@ body{
     flex-direction: column;
 }
 
-
-.glass-piece::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    
-}
-
 .footer-socials {
     display: flex;
     gap: 12px;
@@ -291,6 +348,75 @@ body{
     opacity: 1;
 }
 
+.below-the-fold-content {
+    min-height: 100vh;
+    padding: 60px;
+    background: linear-gradient(to bottom,
+        #050505 0%,        /* matches page bg */
+        #1a0a2e 5%,        /* purple jumps in fast */
+        #3d1872 12%,       /* rich violet early */
+        #6030a8 22%,       /* bright purple hits quick */
+        #8458B3 35%,       /* your original colour — reached early */
+        #9d72c5 55%,       /* soft lavender mid */
+        #be94e9 75%,       /* light and airy */
+        #c5a0e8 100%       /* bright, soft finish */
+    );
+    color: #1a1a1a;
+}
+
+.below-the-fold-content h2 {
+    padding-top: 50px;
+    color: #1a0a2e;
+    margin-bottom: 20px;
+    margin-left: 80px;
+}
+
+.below-the-fold-content p {
+    color: #3d1872;
+    margin-left: 80px;
+
+}
+
+/*glb css*/
+.model-section {
+    position: relative;
+    display: flex;          
+    gap: 20px;              
+    justify-content: center;
+    flex-wrap: wrap;        
+    width: 100%;
+    margin-top: 30px;
+}
+
+.canvas-container {
+    flex: 1;                
+    max-width: 400px;
+    min-width: 280px;       
+    border-radius: 8px;
+    overflow: hidden;
+    
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.canvas-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.canvas-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+model-viewer {
+    width: 100%;
+    height: 400px;         
+    background-color: transparent; /* CHANGE THIS FROM #000000 TO TRANSPARENT */
+    --poster-color: transparent; 
+}
+
 
 @media (max-width: 900px) {
     /* 1. Unlock the body so it can scale and scroll normally down the viewport */
@@ -366,3 +492,9 @@ body{
         width: 100%;
     }
 }
+
+
+html {
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
