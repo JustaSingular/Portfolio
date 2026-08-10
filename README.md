@@ -22,7 +22,7 @@ no build step, no dependencies, no framework.
 ├── index.html, experience.html, websites.html, 3d-models.html, contact.html
 ├── stylesheet.css      # all styles for every page
 ├── script.js           # prev/next page arrows, arrow-key navigation, prefetching
-├── favicon.svg
+├── icons/              # favicon set — svg, png, ico, apple-touch
 ├── images/             # project thumbnails
 ├── 3d-renders/         # rendered video clips (mp4)
 └── Documents/

@@ -1084,6 +1084,14 @@ body {
         padding-top: 0;
     }
 
+    /* One clip per row on mobile. Without this the flex items just shrink to
+       share the row, since min-width is cleared below. */
+    .model-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 28px;
+    }
+
     /* 280px + 2x24px padding overflows a 320px screen — let them shrink */
     .canvas-container {
         min-width: 0;
