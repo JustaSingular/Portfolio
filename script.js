@@ -9,8 +9,16 @@
     { file: 'contact.html',    label: 'Contact Me' }
   ];
 
-  var current = window.location.pathname.split('/').pop() || 'index.html';
-  var i = PAGES.findIndex(function (p) { return p.file === current; });
+  // Match on the bare page name, not the filename. Netlify's Pretty URLs
+  // serve experience.html as /experience, and a directory root ('/', or
+  // '/Portfolio/' on project Pages) has no last segment at all.
+  function slugify(path) {
+    var last = path.substring(path.lastIndexOf('/') + 1);
+    return last.replace(/\.html$/i, '').toLowerCase() || 'index';
+  }
+
+  var current = slugify(window.location.pathname);
+  var i = PAGES.findIndex(function (p) { return slugify(p.file) === current; });
   if (i === -1) return;
 
   // Home is the start of the sequence — nothing to its left.
