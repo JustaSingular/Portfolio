@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &middot; Peter Mitchell</title>
+
+  <meta name="description" content="Get in touch with Peter Mitchell - email, GitHub, and LinkedIn for software development, cloud, and infrastructure opportunities.">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="stylesheet.css">
+  <script>
+    // Hold animations at frame 0 while this page is prerendered in the
+    // background, so the stagger plays when the visitor actually arrives.
+    if (document.prerendering) {
+      document.documentElement.classList.add('is-prerendering');
+      document.addEventListener('prerenderingchange', function () {
+        document.documentElement.classList.remove('is-prerendering');
+      }, { once: true });
+    }
+  </script>
+
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">PM</a>
+
+      <ul class="navbar-links">
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="websites.html">My Websites</a></li>
+        <li><a href="3d-models.html">3D Artwork</a></li>
+        <li><a href="contact.html" aria-current="page">Contact Me</a></li>
+      </ul>
+      <a href="Documents/Resume.pdf" class="navbar-cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/>
+        </svg>
+        Resume
+      </a>
+    </div>
+  </nav>
+
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <h2 class="section-title">Contact Me</h2>
+
+      <p class="contact-intro">
+        I'm currently open to
+        opportunities in software development, cloud, and infrastructure &mdash; and always
+        happy to talk shop about 3D work. The fastest way to reach me is by email, but
+        either of the links below works just as well.
+      </p>
+
+      <div class="contact-links">
+
+        <button type="button" class="contact-card" id="copy-email"
+                data-email="petermitchellofficial@gmail.com">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 6 10-6"/>
+          </svg>
+          <span class="contact-card-label" aria-live="polite">Email</span>
+          <span class="contact-card-value">petermitchellofficial@gmail.com</span>
+        </button>
+
+        <a class="contact-card" href="https://github.com/JustaSingular" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.58 0-.29-.01-1.05-.02-2.06-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.73-1.34-1.73-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.21 1.84 1.21 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.58-2.67-.29-5.47-1.31-5.47-5.84 0-1.29.47-2.35 1.24-3.18-.13-.29-.54-1.5.12-3.13 0 0 1.01-.32 3.3 1.21.96-.26 1.98-.39 3-.4 1.02.01 2.04.14 3 .4 2.29-1.53 3.3-1.21 3.3-1.21.66 1.63.25 2.84.12 3.13.77.83 1.24 1.89 1.24 3.18 0 4.54-2.81 5.55-5.49 5.84.43.36.81 1.08.81 2.18 0 1.58-.01 2.85-.01 3.24 0 .33.21.7.83.58C20.56 21.92 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/>
+          </svg>
+          <span class="contact-card-label">GitHub</span>
+          <span class="contact-card-value">@JustaSingular</span>
+        </a>
+
+        <a class="contact-card" href="https://www.linkedin.com/in/petermitchell2001" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+          </svg>
+          <span class="contact-card-label">LinkedIn</span>
+          <span class="contact-card-value">petermitchell2001</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('copy-email');
+      const label = btn.querySelector('.contact-card-label');
+      const original = label.innerHTML;
+      let resetTimer;
+
+      function copy(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text);
+        }
+        // Fallback for file:// and other non-secure contexts
+        return new Promise(function (resolve, reject) {
+          const helper = document.createElement('textarea');
+          helper.value = text;
+          helper.setAttribute('readonly', '');
+          helper.style.position = 'fixed';
+          helper.style.opacity = '0';
+          document.body.appendChild(helper);
+          helper.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(helper);
+          ok ? resolve() : reject();
+        });
+      }
+
+      btn.addEventListener('click', function () {
+        copy(btn.dataset.email).then(function () {
+          label.textContent = 'Copied!';
+          btn.classList.add('is-copied');
+        }).catch(function () {
+          label.textContent = 'Press Ctrl+C to copy';
+        }).then(function () {
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(function () {
+            label.innerHTML = original;
+            btn.classList.remove('is-copied');
+          }, 1800);
+        });
+      });
+    })();
+  </script>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+# OS cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Source files for assets — export to images/ or 3d-renders/ instead
+*.blend
+*.blend1
+*.psd
+*.ai
+*.glb
+*.fbx
+*.obj
+
+# Loose screenshots dropped in the project root
+/Screenshot*.png
+/image.png
+
+# Logs
+*.log

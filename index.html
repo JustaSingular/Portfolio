@@ -1,240 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Mitchell &middot; IT Graduate &amp; Software Developer</title>
+
+  <meta name="description" content="Peter Mitchell - Information Technology graduate from the University of the West Indies, building web apps, managing cloud infrastructure, and modelling in 3D.">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="stylesheet.css">
+  <script>
+    // Hold animations at frame 0 while this page is prerendered in the
+    // background, so the stagger plays when the visitor actually arrives.
+    if (document.prerendering) {
+      document.documentElement.classList.add('is-prerendering');
+      document.addEventListener('prerenderingchange', function () {
+        document.documentElement.classList.remove('is-prerendering');
+      }, { once: true });
+    }
+  </script>
+
 </head>
 <body>
 
-  <div class="container">
-    
-    <div class="content">
-      <!-- <div class="title">THREE<br>JS.</div> -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand" aria-current="page">PM</a>
+
+      <ul class="navbar-links">
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="websites.html">My Websites</a></li>
+        <li><a href="3d-models.html">3D Artwork</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+      <a href="Documents/Resume.pdf" class="navbar-cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/>
+        </svg>
+        Resume
+      </a>
     </div>
+  </nav>
 
-      <div class="glass-grid">
-      
-      <div class="glass-piece p1">
-         <div class="edge-shine"></div>
-        <div class="inner-content">
-          <h2>Peter Mitchell's Portfolio</h2>
-          <br><br>
-          <p style="margin-top: auto;">Information Technology (Special) graduate from the University of the West Indies, with a strong foundation in software development and a passion for cloud technologies. Proven ability to write clean code across multiple languages and manage virtualized environments, blending development skills with hands-on infrastructure experience.</p>
-            <br><br>
-            <a href="Documents/Resume.pdf" class="resume" target="_blank">Resume</a>
-        </div>
+  <div class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-text">
+        <p class="hero-eyebrow">Trinidad &amp; Tobago &middot; Open to opportunities</p>
+        <h1 class="hero-title">Hi i'm Peter Mitchell</h1>
+        <p class="hero-subtitle">IT Graduate &middot; Software Developer &middot; Cloud &amp; Infrastructure</p>
+        <p class="hero-tagline">I build web apps, manage virtualized environments, and model things in 3D.</p>
       </div>
 
-      <div class="glass-piece p2">
-         <div class="edge-shine"></div>
-      <div class="inner-content" style="width: 100%;">
-      <h2>Websites I've Built</h2>
-    
-      <div class="projects-row">
-      
-      <div class="project-column">
-        <h4>Oil & Gas Tracker</h4>
-        <div class="preview">
-          <div class="browser-bar">
-            <span></span><span></span><span></span>
-          </div>
-          <a href="https://oil-gas-tracker.netlify.app/" target="_blank">
-            <img src="images/oil&gasSS.png" alt="Oil & Gas Tracker">
-          </a>
-        </div>
-      </div>
-
-      <div class="project-column">
-        <h4>B3N Industries</h4>
-        <div class="preview">
-          <div class="browser-bar">
-            <span></span><span></span><span></span>
-          </div>
-          <a href="https://your-second-website-link.com" target="_blank">
-            <img src="images/B3n.png" alt="B3N Industries Webpage">
-          </a>
-        </div>
-      </div>
-
-      </div>
-      </div>
-      </div>
-
-      <div class="glass-piece p3">
-         <div class="edge-shine"></div>
-        <div class="inner-content">
-          <h2>Skills</h2>
-          <br>
-          <p>Html/CSS</p>
-          <p>JavaScript</p>
-          <p>Java</p>
-          <p>Python/Flask</p>
-          <p>C++</p>
-          <p>database management</p>
-          <p>cloud computing</p>
-          <p>Microsoft 360</p>
-        </div>
-      </div>
-
-      <div class="glass-piece p4">
-         <div class="edge-shine"></div>
-        <div class="inner-content">
-          <h2>Work Experience</h2>
-          <h3>B3N Industries</h3>
-          <p>Director of Digital Systems & Technology
- | Jan 2026 - Current</p>
-          <br>
-          <h3>Central Bank of Trinidad and Tobago</h3>
-          <p>Statistics Department (BOP Unit) Intern | Jun 2024 - August 2024</p>
-          <br>
-          <h3>Norman Gabriel Limited Insurance Brokers</h3>
-          <p>Finance Assistant (Intern) | Dec 2022 - Jan 2023</p>
-        </div>
-      </div>
-
-      <div class="glass-piece p5">
-         <div class="edge-shine"></div>
-        <div class="inner-content contact-wrapper">
-          <h3>Contact Me</h3>
-          
-          <div class="footer-socials">
-            <!-- Email button with a built-in tooltip container -->
-            <a href="javascript:void(0)" id="copy-email-btn" class="fa fa-envelope" title="Click to copy email">
-              <span class="tooltip-text">Copy Email</span>
-            </a>
-            <a href="https://www.linkedin.com/in/petermitchell2001" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://github.com/JustaSingular" class="fa fa-github" target="_blank" rel="noopener noreferrer"></a>
-          </div>
-        </div>
-        <div class="card-footer">
-          <p>&copy; <span id="year"></span> Peter Mitchell. Built with HTML & CSS.</p>
-        </div>
-      </div>
     </div>
   </div>
-  
-  <div class="below-the-fold-content">
-    <h2>More Projects and Activities</h2>
-    <p>3D Modelling</p>
 
-    <div class="model-section">
-      <div class="canvas-container">
-        <model-viewer 
-        src="models/gameboy.glb"
-        alt="A 3D model of a Gameboy" 
-        auto-rotate 
-        camera-controls 
-        ar>
-        </model-viewer>
-      </div>
+  <script src="script.js" defer></script>
 
-      <div class="canvas-container">
-        <model-viewer 
-        src="models/chair.glb" 
-        alt="A 3D model of a robot" 
-        auto-rotate 
-        camera-controls>
-        </model-viewer>
-      </div>
-
-      <div class="canvas-container">
-        <model-viewer 
-        src="models/newpan.glb" 
-        alt="A 3D model of a robot" 
-        auto-rotate 
-        camera-controls 
-        autoplay
-        animation-name="*">
-        </model-viewer>
-        </div>
-      </div>
-    </div>
-
-  <script>
-  document.getElementById("year").innerHTML = new Date().getFullYear();
-
-  const container = document.querySelector('.container');
-  const pieces = document.querySelectorAll('.glass-piece');
-
-  // Only run the 3D tilting effect if the screen is wider than 768px (Desktop/Tablet)
-  if (window.innerWidth > 768) {
-    container.addEventListener('mousemove', (e) => {
-      pieces.forEach(piece => {
-        const rect = piece.getBoundingClientRect();
-        
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateY = ((x - centerX) / centerX) * 4; 
-        const rotateX = -((y - centerY) / centerY) * 4; 
-
-        piece.style.transform = `
-          rotateX(${rotateX}deg)
-          rotateY(${rotateY}deg)
-          translateZ(2px)
-        `;
-
-        piece.style.setProperty('--x', `${x}px`);
-        piece.style.setProperty('--y', `${y}px`);
-      });
-    });
-
-    // Restore linear tracking transition
-    container.addEventListener('mouseenter', () => {
-      pieces.forEach(piece => {
-        piece.style.transition = 'transform 150ms linear';
-      });
-    });
-  }
-
-  // Always keep the mouseleave reset active just in case of screen resizing
-  container.addEventListener('mouseleave', () => {
-    pieces.forEach(piece => {
-      piece.style.transition = 'transform 500ms ease-out';
-      piece.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const emailBtn = document.getElementById('copy-email-btn');
-    
-    if (emailBtn) {
-        emailBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Stop any default anchor behaviors
-            
-            const emailStr = 'petermitchellofficial@gmail.com';
-            const tooltip = this.querySelector('.tooltip-text');
-            
-            // Use the standard Clipboard API
-            navigator.clipboard.writeText(emailStr).then(() => {
-                // If tooltip exists, update the text feedback
-                if (tooltip) tooltip.textContent = 'Copied!';
-                
-                // Visual feedback: swap the icon to a checkmark
-                this.classList.remove('fa-envelope');
-                this.classList.add('fa-check'); 
-                
-                // Reset everything back to the envelope icon after 2 seconds
-                setTimeout(() => {
-                    if (tooltip) tooltip.textContent = 'Copy Email';
-                    this.classList.remove('fa-check');
-                    this.classList.add('fa-envelope');
-                }, 2000);
-            }).catch(err => {
-                console.error('Could not copy email automatically: ', err);
-            });
-        });
-    }
-});
-</script>
-  
 </body>
 </html>
