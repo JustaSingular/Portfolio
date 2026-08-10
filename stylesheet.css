@@ -139,6 +139,54 @@ body {
     transform: scaleX(1);
 }
 
+/* display:contents keeps the desktop layout exactly as it was — the list and
+   the Resume link stay direct flex children of .navbar-inner. The wrapper
+   only becomes a real box once it turns into the mobile drop-down. */
+.navbar-menu {
+    display: contents;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: #17313f;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Bars fold into an X while the menu is open */
+.navbar.is-open .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar.is-open .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.is-open .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid #f5ac0f;
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
 .navbar-links {
     display: flex;
     align-items: center;
@@ -229,7 +277,12 @@ body {
 .hero {
     position: relative;
     width: 100%;
+    /* svh = the *small* viewport height, i.e. with the mobile browser bars
+       showing. Plain 100vh assumes they're hidden, so the hero overflows and
+       the page jiggles as the bars slide away on scroll. */
     height: 100vh;
+    height: 100svh;
+    min-height: 520px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -341,27 +394,100 @@ body {
     box-shadow: 0 8px 22px rgba(23, 49, 63, 0.3);
 }
 
-@media (max-width: 640px) {
-    .hero-inner {
-        padding: 0 24px;
+/* MOBILE NAV — five items plus a brand won't fit one row on a phone,
+   so below 900px it collapses behind a toggle. */
+@media (max-width: 900px) {
+    .navbar-inner {
+        padding: 18px 24px;
+        gap: 16px;
     }
 
-    .navbar-inner {
-        padding: 20px 24px;
+    .nav-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 8px 24px 24px;
+        background: #F8F7F1;
+        border-bottom: 1px solid rgba(23, 49, 63, 0.1);
+        box-shadow: 0 12px 28px rgba(23, 49, 63, 0.08);
+
+        /* Collapsed by default; JS flips .is-open on the navbar */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease,
+                    visibility 0s linear 0.25s;
+    }
+
+    .navbar.is-open .navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: opacity 0.25s ease, transform 0.25s ease,
+                    visibility 0s linear 0s;
     }
 
     .navbar-links {
-        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
     }
 
-    .navbar-links a {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
+    .navbar-links li {
+        width: 100%;
     }
 
-    .navbar-cta {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
+    /* Full-width rows with a 48px tap target */
+    .navbar-links a,
+    .navbar-menu .navbar-cta {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 48px;
+        font-size: 0.85rem;
+    }
+
+    /* The sliding underline reads oddly on stacked rows — use a left bar */
+    .navbar-links a::after,
+    .navbar-menu .navbar-cta::after {
+        left: -24px;
+        bottom: auto;
+        top: 50%;
+        width: 3px;
+        height: 24px;
+        transform: translateY(-50%) scaleY(0);
+        transform-origin: center;
+        transition: transform 0.2s ease;
+    }
+
+    .navbar-links a:hover::after,
+    .navbar-links a[aria-current="page"]::after,
+    .navbar-menu .navbar-cta:hover::after {
+        transform: translateY(-50%) scaleY(1);
+    }
+
+    .navbar-menu .navbar-cta {
+        margin-top: 8px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(23, 49, 63, 0.1);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-inner {
+        padding: 0 24px;
     }
 }
 
@@ -939,9 +1065,11 @@ body {
 }
 
 @media (max-width: 900px) {
+    /* .projects-row is a grid — flex-direction did nothing here, so the
+       cards stayed two-across and cramped on phones. */
     .projects-row {
-        flex-direction: column;
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 28px;
     }
 
     .websites {
@@ -954,6 +1082,17 @@ body {
 
     .models + .models {
         padding-top: 0;
+    }
+
+    /* 280px + 2x24px padding overflows a 320px screen — let them shrink */
+    .canvas-container {
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+    }
+
+    .contact-card {
+        min-width: 0;
     }
 }
 

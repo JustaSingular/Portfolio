@@ -1,3 +1,78 @@
+/* Mobile navigation toggle. */
+(function () {
+  var navbar = document.querySelector('.navbar');
+  var toggle = document.querySelector('.nav-toggle');
+  if (!navbar || !toggle) return;
+
+  function setOpen(open) {
+    navbar.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(!navbar.classList.contains('is-open'));
+  });
+
+  // Tapping a destination should close the panel behind it.
+  navbar.querySelectorAll('.navbar-menu a').forEach(function (link) {
+    link.addEventListener('click', function () { setOpen(false); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && navbar.classList.contains('is-open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!navbar.classList.contains('is-open')) return;
+    if (!navbar.contains(e.target)) setOpen(false);
+  });
+
+  // Rotating to landscape can cross the breakpoint while the panel is open,
+  // which would leave the desktop bar in an odd state.
+  var wide = window.matchMedia('(min-width: 901px)');
+  var onChange = function (e) { if (e.matches) setOpen(false); };
+  if (wide.addEventListener) wide.addEventListener('change', onChange);
+  else wide.addListener(onChange);
+})();
+
+
+/* Play render clips only while they're on screen — three autoplaying videos
+   is a lot of mobile data for something scrolled past. */
+(function () {
+  var videos = document.querySelectorAll('.render-video');
+  if (!videos.length) return;
+
+  // No observer support: fall back to plain autoplay so they still play.
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach(function (video) {
+      video.preload = 'metadata';
+      video.autoplay = true;
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var video = entry.target;
+      if (entry.isIntersecting) {
+        var playing = video.play();
+        if (playing && playing.catch) playing.catch(function () {});
+      } else if (!video.paused) {
+        video.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.1 });
+
+  videos.forEach(function (video) { observer.observe(video); });
+})();
+
+
 /* Page-to-page navigation: prev/next arrows + left/right keyboard shortcuts.
    Order below drives both. To add or reorder pages, edit this list only. */
 (function () {
