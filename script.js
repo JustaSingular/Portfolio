@@ -79,7 +79,7 @@
   var PAGES = [
     { file: 'index.html',      label: 'Home' },
     { file: 'experience.html', label: 'Experience' },
-    { file: 'websites.html',   label: 'My Websites' },
+    { file: 'projects.html',   label: "Projects I've Built" },
     { file: '3d-models.html',  label: '3D Artwork' },
     { file: 'contact.html',    label: 'Contact Me' }
   ];

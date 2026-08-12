@@ -11,7 +11,7 @@ no build step, no dependencies, no framework.
 | --- | --- |
 | `index.html` | Landing page — hero and intro |
 | `experience.html` | Work experience, education, technical skills |
-| `websites.html` | Websites and web apps built |
+| `projects.html` | Projects — websites and web apps built |
 | `3d-models.html` | 3D renders |
 | `contact.html` | Email (click to copy), GitHub, LinkedIn |
 
@@ -19,7 +19,7 @@ no build step, no dependencies, no framework.
 
 ```
 .
-├── index.html, experience.html, websites.html, 3d-models.html, contact.html
+├── index.html, experience.html, projects.html, 3d-models.html, contact.html
 ├── stylesheet.css      # all styles for every page
 ├── script.js           # prev/next page arrows, arrow-key navigation, prefetching
 ├── icons/              # favicon set — svg, png, ico, apple-touch
